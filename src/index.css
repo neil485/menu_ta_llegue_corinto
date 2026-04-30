@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-heading: 'Fredoka One', cursive;
+  --font-body: 'Nunito', sans-serif;
+  --color-brand-primary: #e67e22;
+  --color-brand-primary-dark: #d35400;
+  --color-brand-primary-light: #f39c12;
+  --color-brand-secondary: #f1c40f;
+  --color-brand-accent: #e74c3c;
+  --color-brand-cream: #fdf6ec;
+  --color-brand-cream-dark: #f5e6cc;
+  --color-brand-brown: #4a3520;
+  --color-brand-brown-light: #6d5135;
+  --color-brand-dark: #1a1209;
+  --color-brand-darker: #0f0b05;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 15px rgba(230, 126, 34, 0.25), 0 0 30px rgba(243, 156, 18, 0.15), 0 10px 25px rgba(0, 0, 0, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(230, 126, 34, 0.4), 0 0 50px rgba(243, 156, 18, 0.25), 0 10px 35px rgba(0, 0, 0, 0.25);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(12deg);
+  }
+  75% {
+    transform: rotate(-12deg);
+  }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+
+.animate-shimmer {
+  background: linear-gradient(
+    90deg,
+    currentColor 0%,
+    var(--color-brand-secondary) 25%,
+    currentColor 50%,
+    var(--color-brand-secondary) 75%,
+    currentColor 100%
+  );
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer 4s linear infinite;
+}
+
+.animate-spin-slow {
+  animation: spin-slow 0.4s ease-in-out;
+}
+
+.animate-swing {
+  animation: swing 2s ease-in-out infinite;
+}
+
+@keyframes bounce-gentle {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-4px);
+  }
+}
+
+.animate-bounce-gentle {
+  animation: bounce-gentle 2s ease-in-out infinite;
+}
